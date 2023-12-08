@@ -20,13 +20,7 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: |
-          npm install
-          npm list
-          npm outdated || true
-
-      - name: Build
-        run: npm run build
+        run: npm install
 
       - name: Run Tests
         run: npm test
