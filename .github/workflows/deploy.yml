@@ -7,23 +7,12 @@ on:
       - master
 
 jobs:
-  build-test-and-deploy:
+  deploy-to-vercel:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 14  # Spécifiez la version de Node.js que Vercel CLI prend en charge
-
-      # - name: Install Dependencies
-      #   run: npm install
-
-      # - name: Run Tests
-      #   run: npm test
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20.0.1
