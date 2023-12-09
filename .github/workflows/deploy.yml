@@ -9,13 +9,11 @@ on:
 jobs:
   deploy-to-vercel:
     runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Login to Vercel
-        run: npx vercel login -t ${{ secrets.VERCEL_TOKEN }}  
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20.0.1
