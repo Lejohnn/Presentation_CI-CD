@@ -1,9 +1,15 @@
+// script.js
+
+// Function to change the content of the 'message' element
 function changeMessage() {
-  document.getElementById('message').textContent = "Message changé!";
+  const messageElement = document.getElementById("message");
+
+  if (messageElement) {
+    messageElement.innerHTML = "Download CV now!";
+  } else {
+    console.error("Element with ID 'message' not found.");
+  }
 }
 
- 
- module.exports = {
-  changeMessage
- };
- 
+// Call the changeMessage function
+module.exports = { changeMessage };
