@@ -14,10 +14,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Login to Vercel and get token
+        run: |
+          export VERCEL_TOKEN=$(npx vercel login -t <jonathansonkoue75@gmail.com> --json | jq -r '.token')
+          echo "VERCEL_TOKEN=${VERCEL_TOKEN}" >> $GITHUB_ENV
+
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20.0.1
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ env.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
